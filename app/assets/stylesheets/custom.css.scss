@@ -122,3 +122,11 @@
         background: none;
     }
 }
+
+.datepicker {
+    z-index: 1000 !important;
+}
+
+body {
+    margin: 0 !important;
+}
