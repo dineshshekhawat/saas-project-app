@@ -1,4 +1,6 @@
 class Artifact < ApplicationRecord
+
+  before_save :upload_to_s3
   attr_accessor :upload
   belongs_to :project
 
@@ -8,7 +10,13 @@ class Artifact < ApplicationRecord
 
   validate :uploaded_file_size
 
+  mount_uploader :key, AttachmentUploader
+
   private
+
+  def upload_to_s3
+    
+  end
 
   def uploaded_file_size
     if upload

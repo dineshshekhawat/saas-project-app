@@ -22,6 +22,15 @@
   <dd><%= @project.tenant_id %></dd>
 </dl>
 
+<h3>
+  Artifacts
+</h3>
+
+<%= render 'artifacts/list', artifacts: @project.artifacts %>
+
+<br />
+<br />
+
 <%= link_to t('< Back to Organization Home'), 
             root_path, 
             :class => "btn btn-default"  %>
