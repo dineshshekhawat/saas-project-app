@@ -17,7 +17,7 @@
         </td>
         
         <td>
-            <%= s3_link Tenant.current_tenant_id, artifact.key %>
+            <%= link_to 'DOWNLOAD', asset_path(:artifact.key)file.file(:artifact.key, false), download: true %>
         </td>
                 
         <td>

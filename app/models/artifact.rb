@@ -5,7 +5,7 @@ class Artifact < ApplicationRecord
   belongs_to :project
 
   MAX_FILE_SIZE = 10.megabytes
-  validates_presence_of :name, :upload
+  validates_presence_of :name, :key
   validates_uniqueness_of :name
 
   validate :uploaded_file_size

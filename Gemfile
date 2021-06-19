@@ -11,6 +11,7 @@ gem 'devise'
 gem 'milia', github: 'jekuno/milia', branch: 'issue#76'
 
 gem 'aws-sdk'
+gem 'stripe'
 gem 'carrierwave'   
 
 # Use Puma as the app server
