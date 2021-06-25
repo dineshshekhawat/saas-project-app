@@ -18,6 +18,16 @@
         <%= f.text_field :name, required: true, class: "form-control" %>
     </div>
 
+    <div class="form-group col-md-12 no-side-padding">
+      <%= f.label :plan %>
+      <%= 
+        f.select :plan, options_for_select(Plan.options, @tenant.plan),
+        {},
+        required: true,
+        class: "form-control"
+      %>
+    </div>
+
     <% if @tenant.payment.blank? %>
 
         <%= fields_for(:payment) do |p| %>
@@ -38,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-2 no-left-padding">
                 <%= 
                     p.label :card_cvv, 
                     "Card CVV", 
