@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:key) %></th>
+      <th><%= model_class.human_attribute_name(:file) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,7 +17,12 @@
         </td>
         
         <td>
-            <%= link_to 'DOWNLOAD', asset_path(:artifact.key)file.file(:artifact.key, false), download: true %>
+            <%= 
+              link_to 'download', 
+              asset_path(artifact.key),
+              download: artifact.key,
+              :class => 'btn btn-primary'
+            %>
         </td>
                 
         <td>

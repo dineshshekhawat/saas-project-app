@@ -6,16 +6,35 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @artifact.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:key) %>:</strong></dt>
-  <dd><%= @artifact.key %></dd>
+  
+  <dt>
+    <strong>
+      <%= model_class.human_attribute_name(:key) %>:
+    </strong>
+  </dt>
+  
+  <dd>
+    <%= 
+      link_to 'download', 
+      asset_path(@artifact.key),
+      download: @artifact.key,
+      :class => 'btn btn-xs btn-primary'
+    %>
+  </dd>
+  
   <dt><strong><%= model_class.human_attribute_name(:project_id) %>:</strong></dt>
-  <dd><%= @artifact.project_id %></dd>
+  <dd><%= @artifact.project.title %></dd>
 </dl>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              artifacts_path, :class => 'btn btn-default'  %>
+<%= 
+  link_to t('.back', :default => t("helpers.links.back")),
+  tenant_project_path(@artifact.project, tenant_id: @artifact.project.tenant.id), 
+  :class => 'btn btn-default'  
+%>
+
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_artifact_path(@artifact), :class => 'btn btn-default' %>
+
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               artifact_path(@artifact),
               :method => 'delete',
